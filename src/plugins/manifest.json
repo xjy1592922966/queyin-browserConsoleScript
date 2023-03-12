@@ -1,0 +1,55 @@
+{
+    "manifest_version": 3,
+    "name": "雀鹰RPA",
+    "version": "0.0.1",
+    "description": "插件用于巨量千川账户广告计划批量操作，插件批量选择符合条件的计划来提高效率。\n希望大家早点收工，早些回家陪家人孩子。\nPS:插件开发中，注意更新，细节陆续完善，还请多包涵",
+    "action": {
+        "default_title": "雀鹰RPA",
+        "default_icon": {
+            "16": "assets/logo/logo16.png",
+            "24": "assets/logo/logo24.png",
+            "32": "assets/logo/logo32.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "assets/logo/logo16.png",
+        "48": "assets/logo/logo48.png",
+        "128": "assets/logo/logo128.png",
+        "256": "assets/logo/logo256.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "css": [],
+            "js": [
+                "js/jquery-3.5.1.min.js",
+                "js/chunk-vendors.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "permissions": [
+        "scripting",
+        "storage",
+        "activeTab",
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "devtools_page": "devtools.html",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}
